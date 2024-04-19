@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Collapse NavBar</title>
+    <script src="https://kit.fontawesome.com/3f7ec1e94a.js" crossorigin="anonymous"></script>
+    <style type="text/css">
+        body{
+            margin: 0;
+        }
+        #nav{
+            height: 7vh;
+            width:100%;
+            background-color: black;
+            display: flex;
+        }
+        #before-collapse{
+            display: flex;
+            width: 100vw;
+        }
+        #nav-brand{
+            font-size: 175%;
+            margin-right: 3vw;
+            margin-top: 0.5vh;
+            margin-left: 1vw;
+        }
+        #nav-brand a:visited{
+            color:white;
+        }
+        #nav-body{
+            margin-left: 20px;
+            display: flex;
+            justify-content: space-between; 
+            height: 90%;
+            width: 20%;
+        }
+        #nav-body-end{
+            margin-left: 10px;
+            display: flex;
+            flex-direction: row-reverse;
+            height: 90%;
+            width: 20%;
+            position: absolute;
+            right: 0%;
+        }
+        #nav-body div{
+            margin-top: 5%
+        }
+        #nav-body a{
+            color: white;
+            text-decoration: none;
+            font-size: 115%;
+        }
+        #nav-search{
+            color: white;
+            font-size: medium;
+            position: relative;
+            top: 2.2vh;
+            right: 1.1vw;
+        }
+        input{
+            height: 4vh;
+            margin-top: 1vh;
+            margin-right: 0.5vw;
+            border-radius: 10px;
+        }
+        #after-collapse{
+            visibility: hidden;
+        }
+        #after-nav-brand{
+            font-size: 175%;
+            margin-right: 3vw;
+            margin-top: 0.5vh;
+        }
+
+        #after-nav-brand i{
+            color:white;
+        }
+        #nav-menu{
+            position: absolute;
+            top: 0px;
+            right:0px;
+            background-color: black;
+            height: 0%;
+            width: 0%;
+            overflow: hidden;
+            display:flex;
+            flex-direction: column;
+            padding: 1vw;
+            transition-property: width;
+            transition-timing-function: ease-in-out;
+            transition-duration: 0.8s;
+            
+        }
+        #nav-menu:target{
+            height: 100vh;
+            width: 20vw;
+        }
+        #nav-cross{
+            position: relative;
+            left: 80%;
+            width:2.3vw;
+            margin-top: 2vh;
+            /* margin-left: 1vh; */
+            border: 1px solid red;
+            padding: 0.7% 0% 0% 2.7%;
+        }
+        #nav-cross i{
+            color: red;
+            font-size: 110%;
+        }
+        #nav-menu a{
+            color: white;
+            text-decoration: none;
+        }
+        .nav-menu-item{
+            margin-top: 2vh;
+        }
+        hr{
+            width: 100%;
+        }
+
+        @media screen and (max-width: 900px) {
+            #before-collapse{
+                visibility: hidden;
+            }
+            #after-collapse{
+                visibility: visible;
+            }
+            
+        }
+    </style>
+</head>
+<body>
+    <div id="nav">
+        <div id="nav-brand">
+            <a href="#"><i class="fa-solid fa-landmark"></i></a>
+        </div>
+        <div id="before-collapse">
+        <div id="nav-body">
+            <div>
+                <a href="#"> Home</a>
+            </div>
+            <div><a href="#"> About</a></div>
+            <div><a href="#" style="pointer-events: none; opacity: 0.7;"> Disabled</a></div>
+        </div>
+        <div id="nav-body-end">
+            <input id="text" type="text">
+            <label for="text">
+            <div id="nav-search">
+                <i class="fa-solid fa-magnifying-glass">&nbsp;&nbsp;&nbsp;&nbsp;SEARCH</i>
+            </div>
+        </label>
+        </div>
+    </div>
+    <div id="after-collapse">
+        <div id="after-nav-brand"><a href="#nav-menu"><i class="fa-solid fa-bars"></i></a></div>
+        <div id="nav-menu">
+            <div id="nav-cross"><a role="button" href="#"><i class="fa-solid fa-xmark"></i></a></div>
+            <div class="nav-menu-item"><a href="#"> Home</a></div>
+            <hr>
+            <div class="nav-menu-item"><a href="#"> About</a></div>
+            <hr>
+            <div class="nav-menu-item"><a href="#" style="pointer-events: none; opacity: 0.7;"> Disabled</a></div>
+        </div>
+    </div>
+    </div>
+</body>
+</html>
